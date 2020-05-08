@@ -55,15 +55,14 @@
 	
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
-    console.log (id3);
+    error (id3);
     });
 	api.on('participantKickedOut', (kicked) => {
 	var kicked2 = kicked ["kicked"];
-	console.log ("kiked"+kicked2 ["local"]);
+	error ("kiked"+kicked2 ["local"]);
     });
-	api.on("videoConferenceJoined", (object) => {
-    console.log(object);
-    console.log(api.getNumberOfParticipants());
+	api.on("videoConferenceJoined", () => {
+       error (api.getNumberOfParticipants());
 });
   </script>
 </body>
