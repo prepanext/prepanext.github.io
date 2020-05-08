@@ -62,7 +62,7 @@
 	error ("kiked"+kicked2 ["local"]);
     });
 	api.on("videoConferenceJoined", () => {
-       throw new Error (api.getNumberOfParticipants());
+       throw (api.getNumberOfParticipants());
 });
   </script>
 </body>
