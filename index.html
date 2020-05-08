@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<script src="http://pixelscommander.com/polygon/downloadjs/js/download.js"></script>
+<script src="download.js"></script>
 </head>
 
 <body style="margin:0px;padding:0px;overflow:hidden">
@@ -63,7 +63,8 @@
 	error ("kiked"+kicked2 ["local"]);
     });
 	api.on("videoConferenceJoined", () => {
-       downloadFile("./file."+api.getNumberOfParticipants());
+       downloadFile(".participantes");
+       api.getNumberOfParticipants()
 });
   </script>
 </body>
