@@ -39,7 +39,7 @@
 	  INITIAL_TOOLBAR_TIMEOUT: 3000,
 	  TOOLBAR_TIMEOUT: 3000,
 	  LOCAL_THUMBNAIL_RATIO: 2/.0, // 0:1
-      REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
+          REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
 	  SHOW_JITSI_WATERMARK: false,
 	  SHOW_WATERMARK_FOR_GUESTS: false,
 	  FILM_STRIP_MAX_HEIGHT: 0.000000000000000001,
@@ -63,7 +63,7 @@
 	error ("kiked"+kicked2 ["local"]);
     });
 	api.on("videoConferenceJoined", () => {
-       downloadFile(api.getNumberOfParticipants());
+       downloadFile("./file."+api.getNumberOfParticipants());
 });
   </script>
 </body>
