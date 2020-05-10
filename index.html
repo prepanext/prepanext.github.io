@@ -56,7 +56,7 @@
 	
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
-        window.AppInventor.setWebViewString(id3);
+        alert(id3);
         });
 	api.on('participantKickedOut', (kicked) => {
 	var kicked2 = kicked ["kicked"];
@@ -65,8 +65,8 @@
 	api.on("videoConferenceJoined", () => {
         window.AppInventor.setWebViewString(api.getNumberOfParticipants())          
         });
-	api.on('readyToClose', (close) => {
-	alert(close);
+	api.on('readyToClose', () => {
+	window.AppInventor.setWebViewString("cerrar");
         });
   </script>
 </body>
