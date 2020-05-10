@@ -53,7 +53,6 @@
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
 	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
-	
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
         alert(id3);
@@ -67,6 +66,9 @@
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
+        });
+	api.on('incomingMessage', (ver) => {
+	console.log(ver);
         });
   </script>
 </body>
