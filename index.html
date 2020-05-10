@@ -53,6 +53,7 @@
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
 	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
+	api.executeCommand('sendTextMessage', ("holaaaaa"));
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
         alert(id3);
@@ -63,7 +64,6 @@
         });
 	api.on("videoConferenceJoined", () => {
         window.AppInventor.setWebViewString(api.getNumberOfParticipants());
-        api.executeCommand('sendTextMessage', ("holaaaaa"));
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
