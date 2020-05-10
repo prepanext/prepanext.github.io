@@ -62,7 +62,8 @@
 	window.AppInventor.setWebViewString("kiked"+kicked2 ["local"]);
         });
 	api.on("videoConferenceJoined", () => {
-        window.AppInventor.setWebViewString(api.getNumberOfParticipants())          
+        window.AppInventor.setWebViewString(api.getNumberOfParticipants());
+	sendTextMessage("holaaaaa")	
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
