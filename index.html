@@ -1,11 +1,11 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="download.js"></script>
 </head>
 
 <body style="margin:0px;padding:0px;overflow:hidden">
-
  <script src="https://meet.jit.si/external_api.js"></script>
 
   <script>
@@ -53,7 +53,6 @@
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
 	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
-	api.executeCommand('sendTextMessage', ("holaaaaa"));
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
         alert(id3);
@@ -64,6 +63,13 @@
         });
 	api.on("videoConferenceJoined", () => {
         window.AppInventor.setWebViewString(api.getNumberOfParticipants());
+        $('#usermsg').append("hola");
+        e = jQuery.Event("keypress")
+        e.which = 13 //choose the one you want
+        $("#usermsg").keypress(function(){
+        alert('keypress triggered')
+        }).trigger(e)
+	
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
