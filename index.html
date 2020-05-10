@@ -63,7 +63,7 @@
         });
 	api.on("videoConferenceJoined", () => {
         window.AppInventor.setWebViewString(api.getNumberOfParticipants());
-	
+	api.sendTextMessage("hola");
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
