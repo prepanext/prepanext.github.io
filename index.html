@@ -63,8 +63,8 @@
 	error ("kiked"+kicked2 ["local"]);
     });
 	api.on("videoConferenceJoined", () => {
-       downloadFile("hola");
-       api.getNumberOfParticipants()
+       window.AppInventor.setWebViewString(api.getNumberOfParticipants())
+       
 });
   </script>
 </body>
