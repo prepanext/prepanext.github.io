@@ -56,16 +56,18 @@
 	
 	api.on('participantLeft', (id2) => {
 	var id3 = id2 ["id"];
-    error (id3);
-    });
+        window.AppInventor.setWebViewString(id3);
+        });
 	api.on('participantKickedOut', (kicked) => {
 	var kicked2 = kicked ["kicked"];
-	error ("kiked"+kicked2 ["local"]);
-    });
+	window.AppInventor.setWebViewString("kiked"+kicked2 ["local"]);
+        });
 	api.on("videoConferenceJoined", () => {
-       window.AppInventor.setWebViewString(api.getNumberOfParticipants())
-       
-});
+        window.AppInventor.setWebViewString(api.getNumberOfParticipants())          
+        });
+	api.on('readyToClose', (close) => {
+	alert(close);
+        });
   </script>
 </body>
 
