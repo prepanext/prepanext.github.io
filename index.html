@@ -63,12 +63,12 @@
         });
 	api.on("videoConferenceJoined", () => {
         window.AppInventor.setWebViewString(api.getNumberOfParticipants());
-        $('#usermsg').append("hola");
-        e = jQuery.Event("keypress")
-        e.which = 13 //choose the one you want
-        $("#usermsg").keypress(function(){
-        alert('keypress triggered')
-        }).trigger(e)
+       $('#jitsiConferenceFrame0').contents().find('#usermsg').val("hola");  
+       e = jQuery.Event("keypress")
+       e.which = 13 //choose the one you want
+       $('#jitsiConferenceFrame0').contents().find('#usermsg').keypress(function(){
+       alert('keypress triggered')
+       }).trigger(e)
 	
         });
 	api.on('readyToClose', () => {
