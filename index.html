@@ -68,9 +68,9 @@
 	window.AppInventor.setWebViewString("cerrar");
         });
 	api.on('incomingMessage', (profe) => {
-	var profe2 = profe ["from"];
-	alert(profe2);
-        });
+	if ((profe ["nick"]) == "Farid") {
+        alert(profe ["from"])
+	});
   </script>
 </body>
 
