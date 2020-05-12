@@ -18,6 +18,7 @@
     return vars;
 }
     var nombre = getUrlVars()["x"];
+	emailuser = getUrlVars()["y"];
 	nombre = nombre.replace(/\d+% ?/g, "");
 	nombre = decodeURI(nombre);
 	var usuarioreal = (nombre + " " + num)
@@ -26,6 +27,7 @@
       roomName: "Prepanext",
       parentNode: undefined,
 	  userInfo: {
+	           email: (emailuser),
                displayName: (usuarioreal)
     },
     configOverwrite: {
@@ -43,7 +45,7 @@
 	  INITIAL_TOOLBAR_TIMEOUT: 3000,
 	  TOOLBAR_TIMEOUT: 3000,
 	  LOCAL_THUMBNAIL_RATIO: 2/.0, // 0:1
-      REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
+          REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
 	  SHOW_JITSI_WATERMARK: false,
 	  SHOW_WATERMARK_FOR_GUESTS: false,
 	  FILM_STRIP_MAX_HEIGHT: -0.000000000000000001,
@@ -60,7 +62,7 @@
 	
 	api.on('participantLeft', (id2) => {
 	if ((id2 ["id"]) == idprofe) {
-    window.AppInventor.setWebViewString("adiosprofe")};
+    window.AppInventor.setWebViewString("profesalio")};
         });
 	api.on('participantKickedOut', (kicked) => {
 	var kicked2 = kicked ["kicked"];
@@ -77,7 +79,6 @@
 	api.on('incomingMessage', (profe) => {
     if ((profe ["nick"]) == "Profesor Next") {
     idprofe = profe ["from"];
-    window.AppInventor.setWebViewString("idprofe=" + idprofe)};
         });
 	api.on('displayNameChange', (name) => {
 	var names = name ["displayname"]
@@ -87,7 +88,5 @@
         });
   </script>
 </body>
-
-</html>
 
 </html>
