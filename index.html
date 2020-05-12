@@ -6,7 +6,7 @@
 </head>
 
 <body style="margin:0px;padding:0px;overflow:hidden">
-<script src='https://meet.jit.si/external_api.js'></script>
+ <script src='https://meet.jit.si/external_api.js'></script>
 
   <script>
     var num = (Math.floor(Math.random() * 1000));
@@ -30,8 +30,12 @@
     },
     configOverwrite: {
 	  defaultLanguage: "es",
-      hideFilmstrip: true	  },
-	interfaceConfigOverwrite: {
+      hideFilmstrip: true,	
+      enableNoisyMicDetection: false,
+      startWithVideoMuted: true,	
+      startWithAudioMuted: true },
+	  interfaceConfigOverwrite: {
+	  CONNECTION_INDICATOR_DISABLED: true,
 	  DEFAULT_LOCAL_DISPLAY_NAME: 'yo',
 	  DEFAULT_REMOTE_DISPLAY_NAME: '',
 	  SHOW_CHROME_EXTENSION_BANNER: false,
@@ -39,10 +43,10 @@
 	  INITIAL_TOOLBAR_TIMEOUT: 3000,
 	  TOOLBAR_TIMEOUT: 3000,
 	  LOCAL_THUMBNAIL_RATIO: 2/.0, // 0:1
-          REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
+      REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
 	  SHOW_JITSI_WATERMARK: false,
 	  SHOW_WATERMARK_FOR_GUESTS: false,
-	  FILM_STRIP_MAX_HEIGHT: 0.000000000000000001,
+	  FILM_STRIP_MAX_HEIGHT: -0.000000000000000001,
 	  MAXIMUM_ZOOMING_COEFFICIENT: 1.3,
 	  TOOLBAR_BUTTONS: [ 'microphone','hangup', 'camera', 'raisehand', 'chat' ],
 	  SETTINGS_SECTIONS: [],
@@ -53,25 +57,37 @@
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
 	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
+	
 	api.on('participantLeft', (id2) => {
-	var id3 = id2 ["id"];
-        alert(id3);
+	if ((id2 ["id"]) == idprofe) {
+    window.AppInventor.setWebViewString("adiosprofe")};
         });
 	api.on('participantKickedOut', (kicked) => {
 	var kicked2 = kicked ["kicked"];
-	window.AppInventor.setWebViewString("kiked"+kicked2 ["local"]);
-        });
+	if ((kicked2 ["local"]) == true) {
+    window.AppInventor.setWebViewString("expulsado")};
+	    });
 	api.on("videoConferenceJoined", () => {
-        window.AppInventor.setWebViewString(api.getNumberOfParticipants());
+	if ((api.getNumberOfParticipants()) < "2") {
+    window.AppInventor.setWebViewString("noinicio")};
         });
 	api.on('readyToClose', () => {
 	window.AppInventor.setWebViewString("cerrar");
         });
 	api.on('incomingMessage', (profe) => {
-	if (profe ["nick"] == "Farid") {
-        alert(profe ["from"])
-	});
+    if ((profe ["nick"]) == "Profesor") {
+    idprofe = profe ["from"];
+    window.AppInventor.setWebViewString("idprofe=" + idprofe)};
+        });
+	api.on('displayNameChange', (name) => {
+	var names = name ["displayname"]
+    if (names.indexOf("Profesor") > -1) {
+    idprofe = name ["id"];
+    window.AppInventor.setWebViewString("idprofe=" + idprofe)};
+        });
   </script>
 </body>
+
+</html>
 
 </html>
