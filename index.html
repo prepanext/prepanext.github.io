@@ -59,26 +59,29 @@
 	api.executeCommand('toggleToolbar');
 	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
 	
-	api.on('participantLeft', (id2) => {
-	if ((id2 ["id"]) == idprofe) {
-    window.AppInventor.setWebViewString("profesalio")};
-        });
 	api.on('participantKickedOut', (kicked) => {
-	var kicked2 = kicked ["kicked"];
+	kicked2 = kicked ["kicked"];
 	if ((kicked2 ["local"]) == true) {
+	exp = "si";
+	api.removeEventListener('participantLeft');
     window.AppInventor.setWebViewString("expulsado")};
 	    });
+	api.on('readyToClose', () => {
+	cierra = "ya";
+	api.removeEventListener('participantLeft');
+	window.AppInventor.setWebViewString("cerrar");
+        });		
+		api.on('participantLeft', (id2) => {
+	if ((id2 ["id"])==idprofe && typeof(exp)=='undefined' && typeof(cierra)=='undefined') {
+    window.AppInventor.setWebViewString("profesalio")};
+        });
 	api.on("videoConferenceJoined", () => {
 	if ((api.getNumberOfParticipants()) < "2") {
     window.AppInventor.setWebViewString("noinicio")};
         });
-	api.on('readyToClose', () => {
-	window.AppInventor.setWebViewString("cerrar");
-        });
 	api.on('incomingMessage', (profe) => {
     if ((profe ["nick"]) == "Profesor Next") {
-    idprofe = profe ["from"];
-    window.AppInventor.setWebViewString("idprofe=" + idprofe)};
+    idprofe = profe ["from"];};
         });
 	api.on('displayNameChange', (name) => {
 	var names = name ["displayname"]
