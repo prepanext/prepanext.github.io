@@ -71,9 +71,9 @@
 	api.removeEventListener('participantLeft');
 	window.AppInventor.setWebViewString("cerrar");
         });		
-		api.on('participantLeft', (id2) => {
+		api.on('participantLeft', (id2) => { setTimeout(function() {
 	if ((id2 ["id"])==idprofe && typeof(exp)=='undefined' && typeof(cierra)=='undefined') {
-    window.AppInventor.setWebViewString("profesalio")};
+    window.AppInventor.setWebViewString("profesalio");}},3000);
         });
 	api.on("videoConferenceJoined", () => {
 	if ((api.getNumberOfParticipants()) < "2") {
