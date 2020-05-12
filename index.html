@@ -75,13 +75,13 @@
 	window.AppInventor.setWebViewString("cerrar");
         });
 	api.on('incomingMessage', (profe) => {
-    if ((profe ["nick"]) == "Profesor") {
+    if ((profe ["nick"]) == "Profesor Next") {
     idprofe = profe ["from"];
     window.AppInventor.setWebViewString("idprofe=" + idprofe)};
         });
 	api.on('displayNameChange', (name) => {
 	var names = name ["displayname"]
-    if (names.indexOf("Profesor") > -1) {
+    if (names.indexOf("Profesor Next") > -1) {
     idprofe = name ["id"];
     window.AppInventor.setWebViewString("idprofe=" + idprofe)};
         });
