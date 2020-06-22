@@ -48,7 +48,7 @@
 	  INITIAL_TOOLBAR_TIMEOUT: 3000,
 	  TOOLBAR_TIMEOUT: 3000,
 	  LOCAL_THUMBNAIL_RATIO: 2/.0, // 0:1
-      REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
+          REMOTE_THUMBNAIL_RATIO: 2/.0, // 0:1
 	  SHOW_JITSI_WATERMARK: false,
 	  SHOW_WATERMARK_FOR_GUESTS: false,
 	  FILM_STRIP_MAX_HEIGHT: -0.000000000000000001,
@@ -61,7 +61,7 @@
     var api = new JitsiMeetExternalAPI(domain, options);
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
-	api.executeCommand('subject', ('Tu nombre de Usuario es:' + " " + usuarioreal));
+	alert ('Tu nombre de Usuario es:' + " " + usuarioreal);
 	
 	api.on('participantKickedOut', (kicked) => {
 	kicked2 = kicked ["kicked"];
