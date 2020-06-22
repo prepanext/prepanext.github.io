@@ -15,15 +15,19 @@
         vars[key] = value;
     });
     return vars;
-}
+    }
     emailuser = getUrlVars()["y"];
+    salon = getUrlVars()["z"];
+    if (salon === "") {
+    salon = "PREPANEXT220192ABC"
+    }
     var nombre = getUrlVars()["x"];
 	nombre = nombre.replace(/\d+% ?/g, "");
 	nombre = decodeURI(nombre);
 	var usuarioreal = (nombre + " " + num)
     var domain = "meet.jit.si";
     var options = {
-      roomName: "Prepanext",
+      roomName: (salon),
       parentNode: undefined,
 	  userInfo: {
 	           email: (emailuser),
