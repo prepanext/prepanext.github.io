@@ -61,6 +61,7 @@
     var api = new JitsiMeetExternalAPI(domain, options);
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
+	window.AppInventor.setWebViewString("USUARIO:" + usuarioreal)
 	alert ('Tu nombre de Usuario es:' + " " + usuarioreal);
 	
 	api.on('participantKickedOut', (kicked) => {
