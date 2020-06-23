@@ -61,7 +61,8 @@
     var api = new JitsiMeetExternalAPI(domain, options);
 	api.executeCommand('toggleFilmStrip');
 	api.executeCommand('toggleToolbar');
-	window.AppInventor.setWebViewString("USUARIO:" + usuarioreal)
+	setTimeout(function(){ window.AppInventor.setWebViewString("USUARIO:" + usuarioreal); }, 8000);
+	
 	
 	api.on('participantKickedOut', (kicked) => {
 	kicked2 = kicked ["kicked"];
